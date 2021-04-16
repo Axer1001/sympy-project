@@ -37,9 +37,7 @@ def trig_transform(self, x, u):
         return self.transform(x, (u.subs(uvar, d), d)).xreplace({d: uvar})
 
     if uvar in self.limits:
-        raise ValueError(filldedent('''
-            u must contain the same variable as in x
-            or a variable that is not already an integration variable'''))
+        raise ValueError('Variables error')
 
     if not x.is_Symbol:
         F = [x.subs(variable, d)]
