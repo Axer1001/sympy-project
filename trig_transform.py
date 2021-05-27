@@ -6,16 +6,16 @@ from sympy import Abs
 x = Symbol('x')
 t = Symbol('t', real=True)
 
-i1 = Integral(sqrt(4 - x ** 2), (x, -2, -1))
-transformed = i1.trig_transform(x, 2 * sin(t), debug=True)
+i1 = Integral(x / sqrt(x ** 2 - 4), (x, 2, 3))
+transformed = i1.trig_transform(x, 2 / sin(t), debug=True)
 
-print(transformed)
+print(transformed.doit())
 
-i2 = Integral(sqrt(x ** 2 - 4), (x, 3, 4))
-i2 = i2.trig_transform(x, 2 / sin(t), debug=True)
+#i2 = Integral(sqrt(x ** 2 - 4), (x, 3, 4))
+#i2 = i2.trig_transform(x, 2 / sin(t), debug=True)
 
-i3 = Integral(sqrt(x ** 2 +  x**3 + 4), (x, -3, 1))
-i3 = i3.trig_transform(x, 2 * tan(t), debug=True)
+#i3 = Integral(sqrt(x ** 2 +  x**3 + 4), (x, -3, 1))
+#i3 = i3.trig_transform(x, 2 * tan(t), debug=True)
 
 # sin(x) = 5 exception!
 # i1 = i1.xreplace({Abs(cos(t)) : -cos(t)})
