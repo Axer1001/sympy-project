@@ -21,7 +21,17 @@ print(i1.doit(), i2.doit(), i3.doit(), sep='\n')
 
 
 
-def trig_transform(self, x, u):
+def trig_transform(self, x, u, debug=False, t=0):
+
+    if t:
+        import signal
+
+        def signal_handler(signal, f):
+            raise Exception("Time Out!")
+    
+        signal.signal(signal.SIGALRM, signal_handler)
+        signal.alarm(t)
+
     from sympy.solvers.solvers import solve, posify
     from sympy import cos, sin, tan, cot, sqrt
 
