@@ -1,1 +1,1 @@
-Github repo for my sympy project
+### Integration in SymPy using trigonometric substitutions
